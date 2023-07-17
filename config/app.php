@@ -160,6 +160,7 @@ return [
          * Package Service Providers...
          */
         App\Providers\FortifyServiceProvider::class,
+        App\Providers\TelescopeServiceProvider::class,
 
         /*
          * Application Service Providers...
