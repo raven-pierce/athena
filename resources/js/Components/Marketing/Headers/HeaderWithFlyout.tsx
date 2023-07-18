@@ -39,7 +39,7 @@ export default function HeaderWithFlyout() {
                 </div>
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-950 dark:text-white">
                             Product
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400 dark:text-gray-500"
@@ -55,13 +55,13 @@ export default function HeaderWithFlyout() {
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 translate-y-1"
                         >
-                            <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:ring-white/5">
+                            <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-950/5 dark:bg-gray-950 dark:ring-white/5">
                                 {products.map((item: Product) => (
                                     <div
                                         key={item.name}
-                                        className="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-800"
+                                        className="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-900"
                                     >
-                                        <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-800 dark:group-hover:bg-gray-900">
+                                        <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900 dark:group-hover:bg-gray-950">
                                             <item.icon
                                                 className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
                                                 aria-hidden="true"
@@ -70,7 +70,7 @@ export default function HeaderWithFlyout() {
                                         <div className="flex-auto">
                                             <Link
                                                 href={item.href}
-                                                className="block font-semibold text-gray-900 dark:text-white"
+                                                className="block font-semibold text-gray-950 dark:text-white"
                                             >
                                                 {item.name}
                                                 <span className="absolute inset-0" />
@@ -86,18 +86,18 @@ export default function HeaderWithFlyout() {
                     </Popover>
                     <Link
                         href="#"
-                        className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                     >
                         Features
                     </Link>
                     <Link
                         href="#"
-                        className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                     >
                         Marketplace
                     </Link>
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-950 dark:text-white">
                             Company
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400 dark:text-gray-500"
@@ -113,15 +113,15 @@ export default function HeaderWithFlyout() {
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 translate-y-1"
                         >
-                            <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:ring-white/5">
+                            <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-950/5 dark:bg-gray-950 dark:ring-white/5">
                                 {companyLinks.map((item: CompanyLink) => (
                                     <div
                                         key={item.name}
-                                        className="relative rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-800"
+                                        className="relative rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-900"
                                     >
                                         <Link
                                             href={item.href}
-                                            className="block text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                                            className="block text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                                         >
                                             {item.name}
                                             <span className="absolute inset-0" />
@@ -139,7 +139,7 @@ export default function HeaderWithFlyout() {
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <Link
                         href={route('login')}
-                        className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                     >
                         Log In <span aria-hidden="true">&rarr;</span>
                     </Link>
@@ -152,7 +152,7 @@ export default function HeaderWithFlyout() {
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-10" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-white dark:bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:sm:ring-white/10">
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-white dark:bg-gray-950 sm:max-w-sm sm:ring-1 sm:ring-gray-950/10 dark:sm:ring-white/10">
                     <div className="p-6">
                         <div className="flex items-center justify-between">
                             <Link href="#" className="-m-1.5 p-1.5">
@@ -184,9 +184,9 @@ export default function HeaderWithFlyout() {
                                         <Link
                                             key={item.name}
                                             href={item.href}
-                                            className="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                            className="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                         >
-                                            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-800 dark:group-hover:bg-gray-900">
+                                            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900 dark:group-hover:bg-gray-950">
                                                 <item.icon
                                                     className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
                                                     aria-hidden="true"
@@ -199,13 +199,13 @@ export default function HeaderWithFlyout() {
                                 <div className="space-y-2 py-6">
                                     <Link
                                         href="#"
-                                        className="dark:hover -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                        className="dark:hover -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                     >
                                         Features
                                     </Link>
                                     <Link
                                         href="#"
-                                        className="dark:hover -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                        className="dark:hover -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                     >
                                         Marketplace
                                     </Link>
@@ -213,7 +213,7 @@ export default function HeaderWithFlyout() {
                                         <Link
                                             key={item.name}
                                             href={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                         >
                                             {item.name}
                                         </Link>
@@ -222,7 +222,7 @@ export default function HeaderWithFlyout() {
                                 <div className="py-6">
                                     <Link
                                         href={route('login')}
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                     >
                                         Log In
                                     </Link>

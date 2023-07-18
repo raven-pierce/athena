@@ -8,7 +8,7 @@ import { navigation, socialLinks } from '@/Content/Marketing/Footers';
 export default function FooterWithDetails() {
     return (
         <footer
-            className="bg-white dark:bg-gray-900"
+            className="bg-white dark:bg-gray-950"
             aria-labelledby="footer-heading"
         >
             <h2 id="footer-heading" className="sr-only">
@@ -47,7 +47,7 @@ export default function FooterWithDetails() {
                     <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
                         <div className="md:grid md:grid-cols-2 md:gap-8">
                             <div>
-                                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                                <h3 className="text-sm font-semibold leading-6 text-gray-950 dark:text-white">
                                     Solutions
                                 </h3>
                                 <ul role="list" className="mt-6 space-y-4">
@@ -56,7 +56,7 @@ export default function FooterWithDetails() {
                                             <li key={item.name}>
                                                 <Link
                                                     href={item.href}
-                                                    className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                                                    className="text-sm leading-6 text-gray-600 hover:text-gray-950 dark:text-gray-300 dark:hover:text-white"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -66,7 +66,7 @@ export default function FooterWithDetails() {
                                 </ul>
                             </div>
                             <div className="mt-10 md:mt-0">
-                                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                                <h3 className="text-sm font-semibold leading-6 text-gray-950 dark:text-white">
                                     Support
                                 </h3>
                                 <ul role="list" className="mt-6 space-y-4">
@@ -75,7 +75,7 @@ export default function FooterWithDetails() {
                                             <li key={item.name}>
                                                 <Link
                                                     href={item.href}
-                                                    className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                                                    className="text-sm leading-6 text-gray-600 hover:text-gray-950 dark:text-gray-300 dark:hover:text-white"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -87,7 +87,7 @@ export default function FooterWithDetails() {
                         </div>
                         <div className="md:grid md:grid-cols-2 md:gap-8">
                             <div>
-                                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                                <h3 className="text-sm font-semibold leading-6 text-gray-950 dark:text-white">
                                     Company
                                 </h3>
                                 <ul role="list" className="mt-6 space-y-4">
@@ -96,7 +96,7 @@ export default function FooterWithDetails() {
                                             <li key={item.name}>
                                                 <Link
                                                     href={item.href}
-                                                    className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                                                    className="text-sm leading-6 text-gray-600 hover:text-gray-950 dark:text-gray-300 dark:hover:text-white"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -106,7 +106,7 @@ export default function FooterWithDetails() {
                                 </ul>
                             </div>
                             <div className="mt-10 md:mt-0">
-                                <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                                <h3 className="text-sm font-semibold leading-6 text-gray-950 dark:text-white">
                                     Legal
                                 </h3>
                                 <ul role="list" className="mt-6 space-y-4">
@@ -115,7 +115,7 @@ export default function FooterWithDetails() {
                                             <li key={item.name}>
                                                 <Link
                                                     href={item.href}
-                                                    className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                                                    className="text-sm leading-6 text-gray-600 hover:text-gray-950 dark:text-gray-300 dark:hover:text-white"
                                                 >
                                                     {item.name}
                                                 </Link>
@@ -127,7 +127,7 @@ export default function FooterWithDetails() {
                         </div>
                     </div>
                 </div>
-                <div className="mt-16 border-t border-gray-900/10 pt-8 dark:border-white/10 sm:mt-20 lg:mt-24">
+                <div className="mt-16 border-t border-gray-950/10 pt-8 dark:border-white/10 sm:mt-20 lg:mt-24">
                     <p className="text-xs leading-5 text-gray-500 dark:text-gray-400">
                         Copyright &copy; 2023{' '}
                         {import.meta.env.VITE_APP_NAME || 'Laravel'}, LLC. All

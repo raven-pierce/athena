@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 
 export default function HeroSplitWithScreenshot() {
     return (
-        <main className="relative isolate overflow-hidden bg-white dark:bg-gray-900">
+        <main className="relative isolate overflow-hidden bg-white dark:bg-gray-950">
             <svg
                 className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-white/10"
                 aria-hidden="true"
@@ -53,7 +53,7 @@ export default function HeroSplitWithScreenshot() {
                             />
                         </span>
                     </Link>
-                    <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+                    <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-6xl">
                         We&rsquo;re changing the way people learn.
                     </h1>
                     <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -70,7 +70,7 @@ export default function HeroSplitWithScreenshot() {
                         </Link>
                         <Link
                             href="#"
-                            className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                            className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                         >
                             Learn More <span aria-hidden="true">&rarr;</span>
                         </Link>
@@ -78,13 +78,13 @@ export default function HeroSplitWithScreenshot() {
                 </div>
                 <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
                     <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-                        <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+                        <div className="-m-2 rounded-xl bg-gray-950/5 p-2 ring-1 ring-inset ring-gray-950/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                             <img
                                 src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
                                 alt="App screenshot"
                                 width={2432}
                                 height={1442}
-                                className="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10 dark:hidden"
+                                className="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-950/10 dark:hidden"
                             />
                             <img
                                 src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"

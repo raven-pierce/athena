@@ -76,7 +76,7 @@ export default function HeaderWithWideFlyout() {
                 </div>
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
                     <Popover>
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 dark:text-white">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-950 dark:text-white">
                             Product
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400 dark:text-gray-500"
@@ -92,14 +92,14 @@ export default function HeaderWithWideFlyout() {
                             leaveFrom="opacity-100 translate-y-0"
                             leaveTo="opacity-0 -translate-y-1"
                         >
-                            <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:ring-white/5">
+                            <Popover.Panel className="absolute inset-x-0 top-0 -z-10 bg-white pt-14 shadow-lg ring-1 ring-gray-950/5 dark:bg-gray-950 dark:ring-white/5">
                                 <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                                     {products.map((item: Product) => (
                                         <div
                                             key={item.name}
-                                            className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-800"
+                                            className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-900"
                                         >
-                                            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-800 dark:group-hover:bg-gray-900">
+                                            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900 dark:group-hover:bg-gray-950">
                                                 <item.icon
                                                     className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
                                                     aria-hidden="true"
@@ -107,7 +107,7 @@ export default function HeaderWithWideFlyout() {
                                             </div>
                                             <Link
                                                 href={item.href}
-                                                className="mt-6 block font-semibold text-gray-900 dark:text-white"
+                                                className="mt-6 block font-semibold text-gray-950 dark:text-white"
                                             >
                                                 {item.name}
                                                 <span className="absolute inset-0" />
@@ -123,19 +123,19 @@ export default function HeaderWithWideFlyout() {
                     </Popover>
                     <Link
                         href="#"
-                        className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                     >
                         Features
                     </Link>
                     <Link
                         href="#"
-                        className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                     >
                         Marketplace
                     </Link>
                     <Link
                         href="#"
-                        className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                     >
                         Company
                     </Link>
@@ -143,7 +143,7 @@ export default function HeaderWithWideFlyout() {
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <Link
                         href={route('login')}
-                        className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                     >
                         Log In <span aria-hidden="true">&rarr;</span>
                     </Link>
@@ -156,7 +156,7 @@ export default function HeaderWithWideFlyout() {
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-10" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:sm:ring-white/10">
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-gray-950 sm:max-w-sm sm:ring-1 sm:ring-gray-950/10 dark:sm:ring-white/10">
                     <div className="flex items-center justify-between">
                         <Link href="#" className="-m-1.5 p-1.5">
                             <span className="sr-only">
@@ -183,7 +183,7 @@ export default function HeaderWithWideFlyout() {
                                 <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
-                                            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800">
+                                            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900">
                                                 Product
                                                 <ChevronDownIcon
                                                     className={classNames(
@@ -202,7 +202,7 @@ export default function HeaderWithWideFlyout() {
                                                             key={item.name}
                                                             as="a"
                                                             href={item.href}
-                                                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                                         >
                                                             {item.name}
                                                         </Disclosure.Button>
@@ -214,19 +214,19 @@ export default function HeaderWithWideFlyout() {
                                 </Disclosure>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                 >
                                     Features
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                 >
                                     Marketplace
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                 >
                                     Company
                                 </Link>
@@ -234,7 +234,7 @@ export default function HeaderWithWideFlyout() {
                             <div className="py-6">
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                 >
                                     Log In
                                 </Link>

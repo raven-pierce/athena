@@ -2,7 +2,7 @@ import { Link } from '@inertiajs/react';
 
 export default function HeroWithScreenshot() {
     return (
-        <main className="relative isolate bg-white pt-14 dark:bg-gray-900">
+        <main className="relative isolate bg-white pt-14 dark:bg-gray-950">
             <div
                 className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
                 aria-hidden="true"
@@ -18,7 +18,7 @@ export default function HeroWithScreenshot() {
             <div className="py-24 sm:py-32 lg:pb-40">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl text-center">
-                        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+                        <h1 className="text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-6xl">
                             We&rsquo;re changing the way people learn.
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -35,7 +35,7 @@ export default function HeroWithScreenshot() {
                             </Link>
                             <Link
                                 href="#"
-                                className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
+                                className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
                             >
                                 Learn More{' '}
                                 <span aria-hidden="true">&rarr;</span>
@@ -43,13 +43,13 @@ export default function HeroWithScreenshot() {
                         </div>
                     </div>
                     <div className="mt-16 flow-root sm:mt-24">
-                        <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+                        <div className="-m-2 rounded-xl bg-gray-950/5 p-2 ring-1 ring-inset ring-gray-950/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                             <img
                                 src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
                                 alt="App screenshot"
                                 width={2432}
                                 height={1442}
-                                className="rounded-md shadow-2xl ring-1 ring-gray-900/10 dark:hidden"
+                                className="rounded-md shadow-2xl ring-1 ring-gray-950/10 dark:hidden"
                             />
                             <img
                                 src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
