@@ -27,3 +27,10 @@ export interface Product {
     href: string;
     icon: ForwardRefExoticComponent<PropsWithoutRef<SVGProps<SVGSVGElement>>>;
 }
+
+export interface Feature {
+    name: string;
+    description: string;
+    href: string;
+    icon: ForwardRefExoticComponent<PropsWithoutRef<SVGProps<SVGSVGElement>>>;
+}

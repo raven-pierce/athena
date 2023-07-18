@@ -22,14 +22,14 @@ export default function HeroWithScreenshot() {
                             We&rsquo;re changing the way people learn.
                         </h1>
                         <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-                            Anim aute id magna aliqua ad ad non deserunt sunt.
-                            Qui irure qui lorem cupidatat commodo. Elit sunt
-                            amet fugiat veniam occaecat fugiat aliqua.
+                            Your students deserve the best. Give them the a
+                            bespoke experience with a learning platform that is
+                            built with them in mind.
                         </p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <Link
                                 href={route('register')}
-                                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:text-white dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-400"
+                                className="rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 dark:bg-orange-500 dark:text-white dark:hover:bg-orange-400 dark:focus-visible:outline-orange-400"
                             >
                                 Get Started
                             </Link>

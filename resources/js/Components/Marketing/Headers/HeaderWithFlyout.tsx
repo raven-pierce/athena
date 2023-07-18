@@ -1,83 +1,16 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Popover, Transition } from '@headlessui/react';
-import {
-    ArrowPathIcon,
-    Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
-    XMarkIcon,
-} from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { CompanyLink, Product } from '@/types/marketing';
 import { Link } from '@inertiajs/react';
-
-let products: Product[] = [
-    {
-        name: 'Analytics',
-        description: 'Get a better understanding of your traffic',
-        href: '#',
-        icon: ChartPieIcon,
-    },
-    {
-        name: 'Engagement',
-        description: 'Speak directly to your customers',
-        href: '#',
-        icon: CursorArrowRaysIcon,
-    },
-    {
-        name: 'Security',
-        description: 'Your customers’ data will be safe and secure',
-        href: '#',
-        icon: FingerPrintIcon,
-    },
-    {
-        name: 'Integrations',
-        description: 'Connect with third-party tools',
-        href: '#',
-        icon: SquaresPlusIcon,
-    },
-    {
-        name: 'Automations',
-        description: 'Build strategic funnels that will convert',
-        href: '#',
-        icon: ArrowPathIcon,
-    },
-];
-
-let company: CompanyLink[] = [
-    {
-        name: 'Who are we?',
-        description:
-            'Get to know more about our company and the team behind it.',
-        href: '#',
-    },
-    {
-        name: 'Work with us',
-        description:
-            'See available job opportunities and learn more about our culture.',
-        href: '#',
-    },
-    {
-        name: 'Need a hand?',
-        description:
-            'Check out our support page and get your questions answered.',
-        href: '#',
-    },
-    {
-        name: "Here's what we're up to",
-        description:
-            'Read our blog for articles about our company and product.',
-        href: '#',
-    },
-];
+import { companyLinks, products } from '@/Content/Marketing/Headers';
 
 export default function HeaderWithFlyout() {
     let [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="bg-white dark:bg-gray-900">
+        <header className="absolute inset-x-0 top-0 z-50">
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
                 aria-label="Global"
@@ -89,7 +22,7 @@ export default function HeaderWithFlyout() {
                         </span>
                         <img
                             className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=600"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
                             alt=""
                         />
                     </Link>
@@ -130,7 +63,7 @@ export default function HeaderWithFlyout() {
                                     >
                                         <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-800 dark:group-hover:bg-gray-900">
                                             <item.icon
-                                                className="h-6 w-6 text-gray-600 group-hover:text-rose-600 dark:text-gray-300 dark:group-hover:text-rose-500"
+                                                className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
                                                 aria-hidden="true"
                                             />
                                         </div>
@@ -181,7 +114,7 @@ export default function HeaderWithFlyout() {
                             leaveTo="opacity-0 translate-y-1"
                         >
                             <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-white p-4 shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-900 dark:ring-white/5">
-                                {company.map((item: CompanyLink) => (
+                                {companyLinks.map((item: CompanyLink) => (
                                     <div
                                         key={item.name}
                                         className="relative rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-800"
@@ -208,7 +141,7 @@ export default function HeaderWithFlyout() {
                         href={route('login')}
                         className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
                     >
-                        Log in <span aria-hidden="true">&rarr;</span>
+                        Log In <span aria-hidden="true">&rarr;</span>
                     </Link>
                 </div>
             </nav>
@@ -228,7 +161,7 @@ export default function HeaderWithFlyout() {
                                 </span>
                                 <img
                                     className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=600"
+                                    src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
                                     alt=""
                                 />
                             </Link>
@@ -255,7 +188,7 @@ export default function HeaderWithFlyout() {
                                         >
                                             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-800 dark:group-hover:bg-gray-900">
                                                 <item.icon
-                                                    className="h-6 w-6 text-gray-600 group-hover:text-rose-600 dark:text-gray-300 dark:group-hover:text-rose-500"
+                                                    className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
                                                     aria-hidden="true"
                                                 />
                                             </div>
@@ -276,7 +209,7 @@ export default function HeaderWithFlyout() {
                                     >
                                         Marketplace
                                     </Link>
-                                    {company.map((item: CompanyLink) => (
+                                    {companyLinks.map((item: CompanyLink) => (
                                         <Link
                                             key={item.name}
                                             href={item.href}
@@ -291,7 +224,7 @@ export default function HeaderWithFlyout() {
                                         href={route('login')}
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
                                     >
-                                        Log in
+                                        Log In
                                     </Link>
                                 </div>
                             </div>

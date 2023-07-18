@@ -47,7 +47,7 @@ export default function HeaderWithWideFlyout() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
-        <header className="relative isolate z-10 bg-white dark:bg-gray-900">
+        <header className="absolute inset-x-0 top-0 z-50">
             <nav
                 className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
                 aria-label="Global"
@@ -59,7 +59,7 @@ export default function HeaderWithWideFlyout() {
                         </span>
                         <img
                             className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=600"
+                            src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
                             alt=""
                         />
                     </Link>
@@ -101,7 +101,7 @@ export default function HeaderWithWideFlyout() {
                                         >
                                             <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-800 dark:group-hover:bg-gray-900">
                                                 <item.icon
-                                                    className="h-6 w-6 text-gray-600 group-hover:text-rose-600 dark:text-gray-300 dark:group-hover:text-rose-500"
+                                                    className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
                                                     aria-hidden="true"
                                                 />
                                             </div>
@@ -145,7 +145,7 @@ export default function HeaderWithWideFlyout() {
                         href={route('login')}
                         className="text-sm font-semibold leading-6 text-gray-900 dark:text-white"
                     >
-                        Log in <span aria-hidden="true">&rarr;</span>
+                        Log In <span aria-hidden="true">&rarr;</span>
                     </Link>
                 </div>
             </nav>
@@ -164,7 +164,7 @@ export default function HeaderWithWideFlyout() {
                             </span>
                             <img
                                 className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=600"
+                                src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
                                 alt=""
                             />
                         </Link>
@@ -236,7 +236,7 @@ export default function HeaderWithWideFlyout() {
                                     href="#"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
                                 >
-                                    Log in
+                                    Log In
                                 </Link>
                             </div>
                         </div>
