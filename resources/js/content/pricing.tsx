@@ -3,7 +3,8 @@ import {
     DocumentChartBarIcon,
     VideoCameraIcon,
 } from '@heroicons/react/20/solid';
-import { ComparisonSection, Frequency, Plan } from '@/types/marketing';
+import { ComparisonSection, Frequency } from '@/types/marketing/pricing';
+import { Plan } from '@/types/marketing/product';
 
 export let plans: Plan[] = [
     {

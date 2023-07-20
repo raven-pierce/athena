@@ -1,5 +1,5 @@
-import { features } from '@/content/Marketing/Features';
-import { Feature } from '@/types/marketing';
+import { Feature } from '@/types/marketing/product';
+import { features } from '@/content/product';
 
 export default function FeaturesWithScreenshotPanel() {
     return (

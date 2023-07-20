@@ -1,5 +1,6 @@
-import { frequencies, plans } from '@/content/Marketing/Pricings';
-import { Feature, Frequency, Plan } from '@/types/marketing';
+import { Feature, Plan } from '@/types/marketing/product';
+import { frequencies, plans } from '@/content/pricing';
+import { Frequency } from '@/types/marketing/pricing';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { RadioGroup } from '@headlessui/react';
 import { Link } from '@inertiajs/react';

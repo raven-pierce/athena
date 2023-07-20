@@ -3,7 +3,7 @@ import { Link } from '@inertiajs/react';
 
 export default function HeroSplitWithScreenshot() {
     return (
-        <main className="relative">
+        <main className="relative overflow-hidden">
             <svg
                 className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:stroke-white/10"
                 aria-hidden="true"

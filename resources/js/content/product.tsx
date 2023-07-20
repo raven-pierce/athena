@@ -3,7 +3,7 @@ import {
     DocumentChartBarIcon,
     VideoCameraIcon,
 } from '@heroicons/react/20/solid';
-import { Feature } from '@/types/marketing';
+import { Feature } from '@/types/marketing/product';
 
 export let features: Feature[] = [
     {

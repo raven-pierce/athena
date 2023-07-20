@@ -1,9 +1,6 @@
-import { navigation, socialLinks } from '@/content/Marketing/Footers';
-import { NavigationLink, SocialLink } from '@/types/marketing';
+import { NavigationLink, SocialLink } from '@/types/marketing/navigation';
+import { navigation, socialLinks } from '@/content/navigation';
 import { Link } from '@inertiajs/react';
-
-/* TODO: Create about, support, accessibility, and legal pages. */
-/* TODO: Implement social media icon library. */
 
 export default function FooterWithDetails() {
     return (

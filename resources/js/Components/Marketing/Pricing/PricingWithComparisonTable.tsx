@@ -2,10 +2,10 @@ import {
     ComparisonFeature,
     ComparisonSection,
     Frequency,
-    Plan,
-} from '@/types/marketing';
-import { features, frequencies, plans } from '@/content/Marketing/Pricings';
+} from '@/types/marketing/pricing';
 import { CheckIcon, MinusIcon } from '@heroicons/react/20/solid';
+import { features, frequencies, plans } from '@/content/pricing';
+import { Plan } from '@/types/marketing/product';
 import { RadioGroup } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { Link } from '@inertiajs/react';

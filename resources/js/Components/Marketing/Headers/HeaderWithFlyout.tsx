@@ -1,8 +1,10 @@
-import { companyLinks, products } from '@/content/Marketing/Headers';
+import HeaderLogo from '@/Components/Marketing/Headers/HeaderLogo';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog, Popover, Transition } from '@headlessui/react';
+import { companyLinks, products } from '@/content/navigation';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { CompanyLink, Product } from '@/types/marketing';
+import { CompanyLink } from '@/types/marketing/navigation';
+import { Product } from '@/types/marketing/product';
 import { Fragment, useState } from 'react';
 import { Link } from '@inertiajs/react';
 
@@ -16,16 +18,7 @@ export default function HeaderWithFlyout() {
                 aria-label="Global"
             >
                 <div className="flex lg:flex-1">
-                    <Link href="#" className="-m-1.5 p-1.5">
-                        <span className="sr-only">
-                            {import.meta.env.VITE_APP_NAME || 'Laravel'}
-                        </span>
-                        <img
-                            className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
-                            alt=""
-                        />
-                    </Link>
+                    <HeaderLogo />
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -155,16 +148,7 @@ export default function HeaderWithFlyout() {
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-white dark:bg-gray-950 sm:max-w-sm sm:ring-1 sm:ring-gray-950/10 dark:sm:ring-white/10">
                     <div className="p-6">
                         <div className="flex items-center justify-between">
-                            <Link href="#" className="-m-1.5 p-1.5">
-                                <span className="sr-only">
-                                    {import.meta.env.VITE_APP_NAME || 'Laravel'}
-                                </span>
-                                <img
-                                    className="h-8 w-auto"
-                                    src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
-                                    alt=""
-                                />
-                            </Link>
+                            <HeaderLogo />
                             <button
                                 type="button"
                                 className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-400"

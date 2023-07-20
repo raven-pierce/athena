@@ -1,43 +1,11 @@
-import {
-    Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
-    XMarkIcon,
-} from '@heroicons/react/24/outline';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
+import HeaderLogo from '@/Components/Marketing/Headers/HeaderLogo';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { Product } from '@/types/marketing';
+import { Product } from '@/types/marketing/product';
+import { products } from '@/content/navigation';
 import { Fragment, useState } from 'react';
 import { Link } from '@inertiajs/react';
-
-let products: Product[] = [
-    {
-        name: 'Analytics',
-        description: 'Get a better understanding of your traffic',
-        href: '#',
-        icon: ChartPieIcon,
-    },
-    {
-        name: 'Engagement',
-        description: 'Speak directly to your customers',
-        href: '#',
-        icon: CursorArrowRaysIcon,
-    },
-    {
-        name: 'Security',
-        description: 'Your customers’ data will be safe and secure',
-        href: '#',
-        icon: FingerPrintIcon,
-    },
-    {
-        name: 'Integrations',
-        description: 'Connect with third-party tools',
-        href: '#',
-        icon: SquaresPlusIcon,
-    },
-];
 
 function classNames(...classes: string[]): string {
     return classes.filter(Boolean).join(' ');
@@ -53,16 +21,7 @@ export default function HeaderWithWideFlyout() {
                 aria-label="Global"
             >
                 <div className="flex lg:flex-1">
-                    <Link href="#" className="-m-1.5 p-1.5">
-                        <span className="sr-only">
-                            {import.meta.env.VITE_APP_NAME || 'Laravel'}
-                        </span>
-                        <img
-                            className="h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
-                            alt=""
-                        />
-                    </Link>
+                    <HeaderLogo />
                 </div>
                 <div className="flex lg:hidden">
                     <button
@@ -158,16 +117,7 @@ export default function HeaderWithWideFlyout() {
                 <div className="fixed inset-0 z-10" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-gray-950 sm:max-w-sm sm:ring-1 sm:ring-gray-950/10 dark:sm:ring-white/10">
                     <div className="flex items-center justify-between">
-                        <Link href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">
-                                {import.meta.env.VITE_APP_NAME || 'Laravel'}
-                            </span>
-                            <img
-                                className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=orange&shade=600"
-                                alt=""
-                            />
-                        </Link>
+                        <HeaderLogo />
                         <button
                             type="button"
                             className="-m-2.5 rounded-md p-2.5 text-gray-700"
