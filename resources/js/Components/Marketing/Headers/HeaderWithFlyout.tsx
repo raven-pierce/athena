@@ -7,8 +7,9 @@ import { type CompanyLink } from '@/types/marketing/navigation';
 import { type Product } from '@/types/marketing/product';
 import { Fragment, useState } from 'react';
 import { Link } from '@inertiajs/react';
+import { PageProps } from '@/types';
 
-export default function HeaderWithFlyout() {
+export default function HeaderWithFlyout({ auth }: PageProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -132,12 +133,21 @@ export default function HeaderWithFlyout() {
                     </Popover>
                 </Popover.Group>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link
-                        href={route('login')}
-                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
-                    >
-                        Log In <span aria-hidden="true">&rarr;</span>
-                    </Link>
+                    {auth.user ? (
+                        <Link
+                            href={route('login')}
+                            className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
+                        >
+                            Dashboard <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                    ) : (
+                        <Link
+                            href={route('login')}
+                            className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
+                        >
+                            Log In <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                    )}
                 </div>
             </nav>
             <Dialog
@@ -187,13 +197,13 @@ export default function HeaderWithFlyout() {
                                 <div className="space-y-2 py-6">
                                     <Link
                                         href="#"
-                                        className="dark:hover -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                     >
                                         Features
                                     </Link>
                                     <Link
                                         href="#"
-                                        className="dark:hover -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
                                     >
                                         Marketplace
                                     </Link>

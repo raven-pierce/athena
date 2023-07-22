@@ -1,10 +1,10 @@
-import PrimaryButton from '@/Components/PrimaryButton';
 import { Head, Link, useForm } from '@inertiajs/react';
-import { useEffect, type FormEventHandler } from 'react';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import GuestLayout from '@/Layouts/GuestLayout';
-import TextInput from '@/Components/TextInput';
+import { type FormEventHandler, useEffect } from 'react';
+import AuthenticationLayout from '@/Layouts/AuthenticationLayout';
+import InputLabel from '@/Components/Forms/InputLabel';
+import TextInput from '@/Components/Forms/TextInput';
+import PrimaryButton from '@/Components/Forms/PrimaryButton';
+import Alert from '@/Components/Forms/Alert';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -28,105 +28,100 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        <AuthenticationLayout
+            header="Get Started"
+            footer={
+                <p className="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
+                    Got an account?{' '}
+                    <Link
+                        href={route('login')}
+                        className="font-semibold leading-6 text-orange-600 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-300"
+                    >
+                        Let&rsquo;s sign you in!
+                    </Link>
+                </p>
+            }
+        >
             <Head title="Register" />
 
-            <form onSubmit={submit}>
+            {errors.name && <Alert type="error" message={errors.name} />}
+            {errors.email && <Alert type="error" message={errors.email} />}
+            {errors.password && (
+                <Alert type="error" message={errors.password} />
+            )}
+
+            <form className="space-y-6" onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="name" value="Name" />
-
                     <TextInput
                         id="name"
                         name="name"
                         value={data.name}
-                        className="mt-1 block w-full"
                         autoComplete="name"
+                        required
                         isFocused={true}
+                        className="mt-2"
                         onChange={(e) => {
                             setData('name', e.target.value);
                         }}
-                        required
                     />
-
-                    <InputError message={errors.name} className="mt-2" />
                 </div>
-
-                <div className="mt-4">
+                <div>
                     <InputLabel htmlFor="email" value="Email" />
-
                     <TextInput
                         id="email"
-                        type="email"
                         name="email"
+                        type="email"
                         value={data.email}
-                        className="mt-1 block w-full"
                         autoComplete="username"
+                        required
+                        className="mt-2"
                         onChange={(e) => {
                             setData('email', e.target.value);
                         }}
-                        required
                     />
-
-                    <InputError message={errors.email} className="mt-2" />
                 </div>
-
-                <div className="mt-4">
+                <div>
                     <InputLabel htmlFor="password" value="Password" />
-
                     <TextInput
                         id="password"
-                        type="password"
                         name="password"
+                        type="password"
                         value={data.password}
-                        className="mt-1 block w-full"
                         autoComplete="new-password"
+                        required
+                        className="mt-2"
                         onChange={(e) => {
                             setData('password', e.target.value);
                         }}
-                        required
                     />
-
-                    <InputError message={errors.password} className="mt-2" />
                 </div>
-
-                <div className="mt-4">
+                <div>
                     <InputLabel
                         htmlFor="password_confirmation"
                         value="Confirm Password"
                     />
-
                     <TextInput
                         id="password_confirmation"
-                        type="password"
                         name="password_confirmation"
+                        type="password"
                         value={data.password_confirmation}
-                        className="mt-1 block w-full"
                         autoComplete="new-password"
+                        required
+                        className="mt-2"
                         onChange={(e) => {
                             setData('password_confirmation', e.target.value);
                         }}
-                        required
-                    />
-
-                    <InputError
-                        message={errors.password_confirmation}
-                        className="mt-2"
                     />
                 </div>
-
-                <div className="mt-4 flex items-center justify-end">
-                    <Link
-                        href={route('login')}
-                        className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
-                    >
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ml-4" disabled={processing}>
-                        Register
-                    </PrimaryButton>
-                </div>
+                <PrimaryButton
+                    className="w-full"
+                    type="submit"
+                    disabled={processing}
+                >
+                    Sign Up
+                </PrimaryButton>
             </form>
-        </GuestLayout>
+        </AuthenticationLayout>
     );
 }

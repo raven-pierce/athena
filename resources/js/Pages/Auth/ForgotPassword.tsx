@@ -1,9 +1,10 @@
-import PrimaryButton from '@/Components/PrimaryButton';
-import InputError from '@/Components/InputError';
-import { Head, useForm } from '@inertiajs/react';
-import GuestLayout from '@/Layouts/GuestLayout';
-import TextInput from '@/Components/TextInput';
+import { Head, Link, useForm } from '@inertiajs/react';
+import AuthenticationLayout from '@/Layouts/AuthenticationLayout';
 import { type FormEventHandler } from 'react';
+import Alert from '@/Components/Forms/Alert';
+import TextInput from '@/Components/Forms/TextInput';
+import PrimaryButton from '@/Components/Forms/PrimaryButton';
+import InputLabel from '@/Components/Forms/InputLabel';
 
 export default function ForgotPassword({ status }: { status?: string }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -17,42 +18,50 @@ export default function ForgotPassword({ status }: { status?: string }) {
     };
 
     return (
-        <GuestLayout>
+        <AuthenticationLayout
+            header="Forgot Your Password?"
+            footer={
+                <p className="mt-10 text-center text-sm text-gray-500 dark:text-gray-400">
+                    Got your memory back?{' '}
+                    <Link
+                        href={route('login')}
+                        className="font-semibold leading-6 text-orange-600 hover:text-orange-500 dark:text-orange-400 dark:hover:text-orange-300"
+                    >
+                        Let&rsquo;s sign you in!
+                    </Link>
+                </p>
+            }
+        >
             <Head title="Forgot Password" />
 
-            <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-                Forgot your password? No problem. Just let us know your email
-                address and we will email you a password reset link that will
-                allow you to choose a new one.
+            {status && <Alert message={status} type="success" />}
+            {errors.email && <Alert message={errors.email} type="error" />}
+
+            <div className="text-sm text-gray-600 dark:text-gray-400">
+                No worries. Just let us know your email address and we will
+                email you a password reset link!
             </div>
 
-            {status && (
-                <div className="mb-4 text-sm font-medium text-green-600 dark:text-green-400">
-                    {status}
+            <form className="mt-4 space-y-6" onSubmit={submit}>
+                <div>
+                    <InputLabel htmlFor="email" value="Email" />
+                    <TextInput
+                        id="email"
+                        type="email"
+                        name="email"
+                        value={data.email}
+                        required
+                        isFocused={true}
+                        className="mt-2"
+                        onChange={(e) => {
+                            setData('email', e.target.value);
+                        }}
+                    />
                 </div>
-            )}
-
-            <form onSubmit={submit}>
-                <TextInput
-                    id="email"
-                    type="email"
-                    name="email"
-                    value={data.email}
-                    className="mt-1 block w-full"
-                    isFocused={true}
-                    onChange={(e) => {
-                        setData('email', e.target.value);
-                    }}
-                />
-
-                <InputError message={errors.email} className="mt-2" />
-
-                <div className="mt-4 flex items-center justify-end">
-                    <PrimaryButton className="ml-4" disabled={processing}>
-                        Email Password Reset Link
-                    </PrimaryButton>
-                </div>
+                <PrimaryButton className="w-full" disabled={processing}>
+                    Send Password Reset Link
+                </PrimaryButton>
             </form>
-        </GuestLayout>
+        </AuthenticationLayout>
     );
 }
