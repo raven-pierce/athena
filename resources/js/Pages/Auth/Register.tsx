@@ -1,6 +1,6 @@
 import PrimaryButton from '@/Components/PrimaryButton';
 import { Head, Link, useForm } from '@inertiajs/react';
-import { useEffect, FormEventHandler } from 'react';
+import { useEffect, type FormEventHandler } from 'react';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import GuestLayout from '@/Layouts/GuestLayout';
@@ -14,11 +14,12 @@ export default function Register() {
         password_confirmation: '',
     });
 
-    useEffect(() => {
-        return () => {
+    useEffect(
+        () => () => {
             reset('password', 'password_confirmation');
-        };
-    }, []);
+        },
+        []
+    );
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -41,7 +42,9 @@ export default function Register() {
                         className="mt-1 block w-full"
                         autoComplete="name"
                         isFocused={true}
-                        onChange={(e) => setData('name', e.target.value)}
+                        onChange={(e) => {
+                            setData('name', e.target.value);
+                        }}
                         required
                     />
 
@@ -58,7 +61,9 @@ export default function Register() {
                         value={data.email}
                         className="mt-1 block w-full"
                         autoComplete="username"
-                        onChange={(e) => setData('email', e.target.value)}
+                        onChange={(e) => {
+                            setData('email', e.target.value);
+                        }}
                         required
                     />
 
@@ -75,7 +80,9 @@ export default function Register() {
                         value={data.password}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
-                        onChange={(e) => setData('password', e.target.value)}
+                        onChange={(e) => {
+                            setData('password', e.target.value);
+                        }}
                         required
                     />
 
@@ -95,9 +102,9 @@ export default function Register() {
                         value={data.password_confirmation}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
+                        onChange={(e) => {
+                            setData('password_confirmation', e.target.value);
+                        }}
                         required
                     />
 

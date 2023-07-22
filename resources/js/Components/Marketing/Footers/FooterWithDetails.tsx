@@ -1,4 +1,7 @@
-import { NavigationLink, SocialLink } from '@/types/marketing/navigation';
+import {
+    type NavigationLink,
+    type SocialLink,
+} from '@/types/marketing/navigation';
 import { navigation, socialLinks } from '@/content/navigation';
 import { Link } from '@inertiajs/react';
 

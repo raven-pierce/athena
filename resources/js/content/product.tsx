@@ -3,9 +3,9 @@ import {
     DocumentChartBarIcon,
     VideoCameraIcon,
 } from '@heroicons/react/20/solid';
-import { Feature } from '@/types/marketing/product';
+import { type Feature } from '@/types/marketing/product';
 
-export let features: Feature[] = [
+export const features: Feature[] = [
     {
         name: 'Recording Library',
         description:

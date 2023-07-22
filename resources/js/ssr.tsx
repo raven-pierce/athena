@@ -6,17 +6,17 @@ import ReactDOMServer from 'react-dom/server';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
-createServer((page) =>
+createServer(async (page) =>
     createInertiaApp({
         page,
         render: ReactDOMServer.renderToString,
         title: (title) => `${title} - ${appName}`,
-        resolve: (name) =>
+        resolve: async (name) =>
             resolvePageComponent(
                 `./Pages/${name}.tsx`,
                 import.meta.glob('./Pages/**/*.tsx')
             ),
-        setup: ({ App, props }) => {
+        setup({ App, props }) {
             global.route = (name, params, absolute) =>
                 route(name, params, absolute, {
                     // @ts-expect-error

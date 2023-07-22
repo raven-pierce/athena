@@ -1,7 +1,7 @@
 import PrimaryButton from '@/Components/PrimaryButton';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
-import { useRef, FormEventHandler } from 'react';
+import { useRef, type FormEventHandler } from 'react';
 import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
 import { useForm } from '@inertiajs/react';
@@ -33,8 +33,10 @@ export default function UpdatePasswordForm({
 
         put(route('user-password.update'), {
             preserveScroll: true,
-            onSuccess: () => reset(),
-            onError: (errors) => {
+            onSuccess() {
+                reset();
+            },
+            onError(errors) {
                 if (errors.password) {
                     reset('password', 'password_confirmation');
                     passwordInput.current?.focus();
@@ -72,9 +74,9 @@ export default function UpdatePasswordForm({
                         id="current_password"
                         ref={currentPasswordInput}
                         value={data.current_password}
-                        onChange={(e) =>
-                            setData('current_password', e.target.value)
-                        }
+                        onChange={(e) => {
+                            setData('current_password', e.target.value);
+                        }}
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="current-password"
@@ -93,7 +95,9 @@ export default function UpdatePasswordForm({
                         id="password"
                         ref={passwordInput}
                         value={data.password}
-                        onChange={(e) => setData('password', e.target.value)}
+                        onChange={(e) => {
+                            setData('password', e.target.value);
+                        }}
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="new-password"
@@ -111,9 +115,9 @@ export default function UpdatePasswordForm({
                     <TextInput
                         id="password_confirmation"
                         value={data.password_confirmation}
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
+                        onChange={(e) => {
+                            setData('password_confirmation', e.target.value);
+                        }}
                         type="password"
                         className="mt-1 block w-full"
                         autoComplete="new-password"

@@ -1,6 +1,6 @@
-import { Feature, Plan } from '@/types/marketing/product';
+import { type Feature, type Plan } from '@/types/marketing/product';
 import { frequencies, plans } from '@/content/pricing';
-import { Frequency } from '@/types/marketing/pricing';
+import { type Frequency } from '@/types/marketing/pricing';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { RadioGroup } from '@headlessui/react';
 import { Link } from '@inertiajs/react';
@@ -11,26 +11,23 @@ function classNames(...classes: string[]): string {
 }
 
 export default function PricingWithExtraTier() {
-    let [frequency, setFrequency] = useState(frequencies[0]);
+    const [frequency, setFrequency] = useState(frequencies[0]);
 
     return (
         <div className="isolate overflow-hidden bg-gray-950">
             <div className="mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8">
                 <div className="mx-auto max-w-4xl">
                     <h2 className="text-base font-semibold leading-7 text-orange-400">
-                        Pricing
+                        Scalable Pricing
                     </h2>
                     <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                        The right price for you,{' '}
-                        <br className="hidden sm:inline lg:hidden" />
-                        whoever you are
+                        We&rsquo;re light on your wallet.
                     </p>
                 </div>
                 <div className="relative mt-6">
                     <p className="mx-auto max-w-2xl text-lg leading-8 text-white/60">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Velit numquam eligendi quos odit doloribus
-                        molestiae voluptatum.
+                        A model so simple, you&rsquo;ll wonder why you ever paid
+                        for anything else.
                     </p>
                     <svg
                         viewBox="0 0 1208 1024"

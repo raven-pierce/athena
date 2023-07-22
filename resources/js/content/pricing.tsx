@@ -1,18 +1,24 @@
 import {
+    CheckBadgeIcon,
     CreditCardIcon,
     DocumentChartBarIcon,
+    LightBulbIcon,
     VideoCameraIcon,
 } from '@heroicons/react/20/solid';
-import { ComparisonSection, Frequency } from '@/types/marketing/pricing';
-import { Plan } from '@/types/marketing/product';
+import {
+    type ComparisonSection,
+    type Frequency,
+} from '@/types/marketing/pricing';
+import { type Plan } from '@/types/marketing/product';
 
-export let plans: Plan[] = [
+export const plans: Plan[] = [
     {
         name: 'Essential',
         id: 'plan-essential',
         href: '#',
-        price: { monthly: 29, yearly: 290 },
-        description: 'Quis suspendisse ut fermentum neque vivamus non tellus.',
+        price: { monthly: 30, yearly: 270 },
+        description:
+            'A plan for those just getting started with online lessons.',
         features: [
             {
                 name: 'Recording Library',
@@ -22,11 +28,18 @@ export let plans: Plan[] = [
                 icon: VideoCameraIcon,
             },
             {
-                name: 'Detailed Reports',
+                name: 'Attendance Tracking',
                 description:
-                    'Keep track of exactly how your students are performing with detailed reports.',
+                    'Keep track of your students attendance with our built-in attendance tracking system.',
                 href: '#',
-                icon: DocumentChartBarIcon,
+                icon: CheckBadgeIcon,
+            },
+            {
+                name: 'Assessments',
+                description:
+                    'Assign homework and quizzes to your students to keep them engaged and learning.',
+                href: '#',
+                icon: LightBulbIcon,
             },
             {
                 name: 'Stripe Invoicing',
@@ -35,15 +48,23 @@ export let plans: Plan[] = [
                 href: '#',
                 icon: CreditCardIcon,
             },
+            {
+                name: 'Detailed Reports',
+                description:
+                    'Keep track of exactly how your students are performing with detailed reports.',
+                href: '#',
+                icon: DocumentChartBarIcon,
+            },
         ],
         featured: false,
     },
     {
-        name: 'Basic',
-        id: 'plan-basic',
+        name: 'Plus',
+        id: 'plan-plus',
         href: '#',
-        price: { monthly: 29, yearly: 290 },
-        description: 'Quis suspendisse ut fermentum neque vivamus non tellus.',
+        price: { monthly: 50, yearly: 450 },
+        description:
+            'A plan for established teachers looking to grow their business.',
         features: [
             {
                 name: 'Recording Library',
@@ -70,11 +91,12 @@ export let plans: Plan[] = [
         featured: true,
     },
     {
-        name: 'Plus',
-        id: 'plan-plus',
+        name: 'Pro',
+        id: 'plan-pro',
         href: '#',
-        price: { monthly: 29, yearly: 290 },
-        description: 'Quis suspendisse ut fermentum neque vivamus non tellus.',
+        price: { monthly: 100, yearly: 900 },
+        description:
+            'A plan tailored to educational institutions and large studios.',
         features: [
             {
                 name: 'Recording Library',
@@ -102,12 +124,12 @@ export let plans: Plan[] = [
     },
 ];
 
-export let frequencies: Frequency[] = [
+export const frequencies: Frequency[] = [
     { value: 'monthly', label: 'Monthly', suffix: '/month' },
     { value: 'yearly', label: 'Yearly', suffix: '/year' },
 ];
 
-export let features: ComparisonSection[] = [
+export const features: ComparisonSection[] = [
     {
         name: 'Features',
         features: [

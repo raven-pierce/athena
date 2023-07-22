@@ -3,22 +3,22 @@ import {
     createContext,
     useContext,
     Fragment,
-    PropsWithChildren,
-    Dispatch,
-    SetStateAction,
+    type PropsWithChildren,
+    type Dispatch,
+    type SetStateAction,
 } from 'react';
-import { Link, InertiaLinkProps } from '@inertiajs/react';
+import { Link, type InertiaLinkProps } from '@inertiajs/react';
 import { Transition } from '@headlessui/react';
 
 const DropDownContext = createContext<{
     open: boolean;
     setOpen: Dispatch<SetStateAction<boolean>>;
     toggleOpen: () => void;
-}>({
-    open: false,
-    setOpen: () => {},
-    toggleOpen: () => {},
-});
+        }>({
+            open: false,
+            setOpen() {},
+            toggleOpen() {},
+        });
 
 const Dropdown = ({ children }: PropsWithChildren) => {
     const [open, setOpen] = useState(false);
@@ -44,7 +44,9 @@ const Trigger = ({ children }: PropsWithChildren) => {
             {open && (
                 <div
                     className="fixed inset-0 z-40"
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                        setOpen(false);
+                    }}
                 ></div>
             )}
         </>
@@ -91,11 +93,13 @@ const Content = ({
             >
                 <div
                     className={`absolute z-50 mt-2 rounded-md shadow-lg ${alignmentClasses} ${widthClasses}`}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                        setOpen(false);
+                    }}
                 >
                     <div
                         className={
-                            `rounded-md ring-1 ring-black ring-opacity-5 ` +
+                            'rounded-md ring-1 ring-black ring-opacity-5 ' +
                             contentClasses
                         }
                     >
@@ -111,19 +115,17 @@ const DropdownLink = ({
     className = '',
     children,
     ...props
-}: InertiaLinkProps) => {
-    return (
-        <Link
-            {...props}
-            className={
-                'block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:bg-gray-100 focus:outline-none dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:bg-gray-800 ' +
-                className
-            }
-        >
-            {children}
-        </Link>
-    );
-};
+}: InertiaLinkProps) => (
+    <Link
+        {...props}
+        className={
+            'block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 transition duration-150 ease-in-out hover:bg-gray-100 focus:bg-gray-100 focus:outline-none dark:text-gray-300 dark:hover:bg-gray-800 dark:focus:bg-gray-800 ' +
+            className
+        }
+    >
+        {children}
+    </Link>
+);
 
 Dropdown.Trigger = Trigger;
 Dropdown.Content = Content;

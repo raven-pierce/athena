@@ -2,7 +2,7 @@ import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
 import HeaderLogo from '@/Components/Marketing/Headers/HeaderLogo';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { Product } from '@/types/marketing/product';
+import { type Product } from '@/types/marketing/product';
 import { products } from '@/content/navigation';
 import { Fragment, useState } from 'react';
 import { Link } from '@inertiajs/react';
@@ -27,7 +27,9 @@ export default function HeaderWithWideFlyout() {
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-400"
-                        onClick={() => setMobileMenuOpen(true)}
+                        onClick={() => {
+                            setMobileMenuOpen(true);
+                        }}
                     >
                         <span className="sr-only">Open main menu</span>
                         <Bars3Icon className="h-6 w-6" aria-hidden="true" />
@@ -121,7 +123,9 @@ export default function HeaderWithWideFlyout() {
                         <button
                             type="button"
                             className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() => {
+                                setMobileMenuOpen(false);
+                            }}
                         >
                             <span className="sr-only">Close menu</span>
                             <XMarkIcon className="h-6 w-6" aria-hidden="true" />

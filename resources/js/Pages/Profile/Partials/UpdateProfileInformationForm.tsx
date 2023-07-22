@@ -4,8 +4,8 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import TextInput from '@/Components/TextInput';
 import { Transition } from '@headlessui/react';
-import { FormEventHandler } from 'react';
-import { PageProps } from '@/types';
+import { type FormEventHandler } from 'react';
+import { type PageProps } from '@/types';
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -16,7 +16,7 @@ export default function UpdateProfileInformation({
     status?: string;
     className?: string;
 }) {
-    const user = usePage<PageProps>().props.auth.user;
+    const { user } = usePage<PageProps>().props.auth;
 
     const { data, setData, patch, errors, processing, recentlySuccessful } =
         useForm({
@@ -38,7 +38,8 @@ export default function UpdateProfileInformation({
                 </h2>
 
                 <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    Update your account's profile information and email address.
+                    Update your account&rquos;s profile information and email
+                    address.
                 </p>
             </header>
 
@@ -50,7 +51,9 @@ export default function UpdateProfileInformation({
                         id="name"
                         className="mt-1 block w-full"
                         value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
+                        onChange={(e) => {
+                            setData('name', e.target.value);
+                        }}
                         required
                         isFocused
                         autoComplete="name"
@@ -67,7 +70,9 @@ export default function UpdateProfileInformation({
                         type="email"
                         className="mt-1 block w-full"
                         value={data.email}
-                        onChange={(e) => setData('email', e.target.value)}
+                        onChange={(e) => {
+                            setData('email', e.target.value);
+                        }}
                         required
                         autoComplete="username"
                     />

@@ -5,11 +5,11 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createInertiaApp } from '@inertiajs/react';
 import { createRoot } from 'react-dom/client';
 
-let appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) =>
+    resolve: async (name) =>
         resolvePageComponent(
             `./Pages/${name}.tsx`,
             import.meta.glob('./Pages/**/*.tsx')

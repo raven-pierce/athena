@@ -8,8 +8,8 @@ export default function NewsletterOnCard() {
                     </h2>
 
                     <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
-                        Subscribe to our newsletter and we'll keep you up to
-                        date with the latest features and releases. No spam,
+                        Subscribe to our newsletter and we&rsquo;ll keep you up
+                        to date with the latest features and releases. No spam,
                         ever.
                     </p>
                     {/* TODO: Implement newsletter controller action */}

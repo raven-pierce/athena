@@ -10,8 +10,8 @@ export default function NewsletterWithDetails() {
                             Stay in the loop!
                         </h2>
                         <p className="mt-4 text-lg leading-8 text-gray-300">
-                            Subscribe to our newsletter and we'll keep you up to
-                            date with the latest features and releases.
+                            Subscribe to our newsletter and we&rsquo;ll keep you
+                            up to date with the latest features and releases.
                         </p>
                         {/* TODO: Implement newsletter controller action */}
                         <form className="mt-6 flex max-w-md gap-x-4">
@@ -47,8 +47,8 @@ export default function NewsletterWithDetails() {
                                 Update Digests
                             </dt>
                             <dd className="mt-2 leading-7 text-gray-400">
-                                You'll receive an email whenever we release
-                                updates to our platform.
+                                You&rsquo;ll receive an email whenever we
+                                release updates to our platform.
                             </dd>
                         </div>
                         <div className="flex flex-col items-start">
@@ -62,8 +62,8 @@ export default function NewsletterWithDetails() {
                                 No Spam
                             </dt>
                             <dd className="mt-2 leading-7 text-gray-400">
-                                We'll never share your email address and you can
-                                opt out at any time.
+                                We&rsquo;ll never share your email address and
+                                you can opt out at any time.
                             </dd>
                         </div>
                     </dl>

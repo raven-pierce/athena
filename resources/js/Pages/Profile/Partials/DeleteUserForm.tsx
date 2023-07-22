@@ -1,5 +1,5 @@
 import SecondaryButton from '@/Components/SecondaryButton';
-import { useRef, useState, FormEventHandler } from 'react';
+import { useRef, useState, type FormEventHandler } from 'react';
 import DangerButton from '@/Components/DangerButton';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
@@ -35,9 +35,13 @@ export default function DeleteUserForm({
 
         destroy(route('profile.destroy'), {
             preserveScroll: true,
-            onSuccess: () => closeModal(),
+            onSuccess() {
+                closeModal();
+            },
             onError: () => passwordInput.current?.focus(),
-            onFinish: () => reset(),
+            onFinish() {
+                reset();
+            },
         });
     };
 
@@ -92,9 +96,9 @@ export default function DeleteUserForm({
                             name="password"
                             ref={passwordInput}
                             value={data.password}
-                            onChange={(e) =>
-                                setData('password', e.target.value)
-                            }
+                            onChange={(e) => {
+                                setData('password', e.target.value);
+                            }}
                             className="mt-1 block w-3/4"
                             isFocused
                             placeholder="Password"

@@ -1,6 +1,6 @@
-import { Feature, Plan } from '@/types/marketing/product';
+import { type Feature, type Plan } from '@/types/marketing/product';
 import { frequencies, plans } from '@/content/pricing';
-import { Frequency } from '@/types/marketing/pricing';
+import { type Frequency } from '@/types/marketing/pricing';
 import { CheckIcon } from '@heroicons/react/20/solid';
 import { RadioGroup } from '@headlessui/react';
 import { Link } from '@inertiajs/react';
@@ -11,23 +11,22 @@ function classNames(...classes: string[]): string {
 }
 
 export default function PricingWithFrequencyToggles() {
-    let [frequency, setFrequency] = useState(frequencies[0]);
+    const [frequency, setFrequency] = useState(frequencies[0]);
 
     return (
         <div className="py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl text-center">
                     <h2 className="text-base font-semibold leading-7 text-orange-600 dark:text-orange-400">
-                        Pricing
+                        Scalable Pricing
                     </h2>
                     <p className="mt-2 text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-5xl">
-                        Pricing plans for teams of&nbsp;all&nbsp;sizes
+                        We&rsquo;re light on your wallet.
                     </p>
                 </div>
                 <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600 dark:text-gray-300">
-                    Choose an affordable plan that’s packed with the best
-                    features for engaging your audience, creating customer
-                    loyalty, and driving sales.
+                    A model so simple, you&rsquo;ll wonder why you ever paid for
+                    anything else.
                 </p>
                 <div className="mt-16 flex justify-center">
                     <RadioGroup
@@ -81,7 +80,7 @@ export default function PricingWithFrequencyToggles() {
                                 </h3>
                                 {plan.featured ? (
                                     <p className="rounded-full bg-orange-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-orange-600 dark:bg-orange-500 dark:text-white">
-                                        Most popular
+                                        Featured
                                     </p>
                                 ) : null}
                             </div>

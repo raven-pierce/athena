@@ -3,7 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm';
 import DeleteUserForm from './Partials/DeleteUserForm';
 import { Head } from '@inertiajs/react';
-import { PageProps } from '@/types';
+import { type PageProps } from '@/types';
 
 export default function Edit({
     auth,

@@ -1,5 +1,5 @@
 import PrimaryButton from '@/Components/PrimaryButton';
-import { useEffect, FormEventHandler } from 'react';
+import { useEffect, type FormEventHandler } from 'react';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import { Head, useForm } from '@inertiajs/react';
@@ -14,17 +14,18 @@ export default function ResetPassword({
     email: string;
 }) {
     const { data, setData, post, processing, errors, reset } = useForm({
-        token: token,
-        email: email,
+        token,
+        email,
         password: '',
         password_confirmation: '',
     });
 
-    useEffect(() => {
-        return () => {
+    useEffect(
+        () => () => {
             reset('password', 'password_confirmation');
-        };
-    }, []);
+        },
+        []
+    );
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
@@ -47,7 +48,9 @@ export default function ResetPassword({
                         value={data.email}
                         className="mt-1 block w-full"
                         autoComplete="username"
-                        onChange={(e) => setData('email', e.target.value)}
+                        onChange={(e) => {
+                            setData('email', e.target.value);
+                        }}
                     />
 
                     <InputError message={errors.email} className="mt-2" />
@@ -64,7 +67,9 @@ export default function ResetPassword({
                         className="mt-1 block w-full"
                         autoComplete="new-password"
                         isFocused={true}
-                        onChange={(e) => setData('password', e.target.value)}
+                        onChange={(e) => {
+                            setData('password', e.target.value);
+                        }}
                     />
 
                     <InputError message={errors.password} className="mt-2" />
@@ -82,9 +87,9 @@ export default function ResetPassword({
                         value={data.password_confirmation}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
+                        onChange={(e) => {
+                            setData('password_confirmation', e.target.value);
+                        }}
                     />
 
                     <InputError

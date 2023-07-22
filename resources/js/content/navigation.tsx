@@ -1,19 +1,19 @@
 import {
-    ArrowPathIcon,
+    CheckBadgeIcon,
     CreditCardIcon,
     DocumentChartBarIcon,
     SquaresPlusIcon,
     VideoCameraIcon,
 } from '@heroicons/react/24/outline';
 import {
-    CompanyLink,
-    Navigation,
-    NavigationLink,
-    SocialLink,
+    type CompanyLink,
+    type Navigation,
+    type NavigationLink,
+    type SocialLink,
 } from '@/types/marketing/navigation';
-import { Product } from '@/types/marketing/product';
+import { type Product } from '@/types/marketing/product';
 
-export let simpleNavigation: NavigationLink[] = [
+export const simpleNavigation: NavigationLink[] = [
     { name: 'About', href: '#' },
     { name: 'Support', href: '#' },
     { name: 'Accessibility', href: '#' },
@@ -22,7 +22,7 @@ export let simpleNavigation: NavigationLink[] = [
 
 /* TODO: Create about, support, accessibility, and legal pages. */
 
-export let navigation: Navigation = {
+export const navigation: Navigation = {
     solutions: [
         { name: 'Marketing', href: '#' },
         { name: 'Analytics', href: '#' },
@@ -49,7 +49,7 @@ export let navigation: Navigation = {
     ],
 };
 
-export let companyLinks: CompanyLink[] = [
+export const companyLinks: CompanyLink[] = [
     {
         name: 'Who are we?',
         description:
@@ -78,11 +78,11 @@ export let companyLinks: CompanyLink[] = [
 
 /* TODO: Implement social media icon library. */
 
-export let socialLinks: SocialLink[] = [
+export const socialLinks: SocialLink[] = [
     {
         name: 'Twitter',
         href: '#',
-        icon: (props: object) => (
+        icon: (props: Record<string, unknown>) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                 <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
             </svg>
@@ -91,7 +91,7 @@ export let socialLinks: SocialLink[] = [
     {
         name: 'GitHub',
         href: '#',
-        icon: (props: object) => (
+        icon: (props: Record<string, unknown>) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                 <path
                     fillRule="evenodd"
@@ -103,7 +103,7 @@ export let socialLinks: SocialLink[] = [
     },
 ];
 
-export let products: Product[] = [
+export const products: Product[] = [
     {
         name: 'Recordings',
         description:
@@ -119,6 +119,13 @@ export let products: Product[] = [
         icon: DocumentChartBarIcon,
     },
     {
+        name: 'Attendance',
+        description:
+            'Keep track of your students attendance with our built-in attendance tracking system.',
+        href: '#',
+        icon: CheckBadgeIcon,
+    },
+    {
         name: 'Invoicing',
         description:
             'Take advantage of our hassle-free, built-in invoicing system.',
@@ -130,11 +137,5 @@ export let products: Product[] = [
         description: 'Connect with third-party tools',
         href: '#',
         icon: SquaresPlusIcon,
-    },
-    {
-        name: 'Automations',
-        description: 'Build strategic funnels that will convert',
-        href: '#',
-        icon: ArrowPathIcon,
     },
 ];

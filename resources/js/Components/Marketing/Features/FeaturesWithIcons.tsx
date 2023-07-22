@@ -1,4 +1,4 @@
-import { Feature } from '@/types/marketing/product';
+import { type Feature } from '@/types/marketing/product';
 import { features } from '@/content/product';
 import { Link } from '@inertiajs/react';
 

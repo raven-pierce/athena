@@ -1,6 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import { PageProps } from '@/types';
+import { type PageProps } from '@/types';
 
 export default function Dashboard({ auth }: PageProps) {
     return (
@@ -18,7 +18,7 @@ export default function Dashboard({ auth }: PageProps) {
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
-                            You're logged in!
+                            You&rsquo;re logged in!
                         </div>
                     </div>
                 </div>

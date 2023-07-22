@@ -1,23 +1,19 @@
-export interface Price {
-    [key: string]: number;
-}
+export type Price = Record<string, number>;
 
-export interface Frequency {
+export type Frequency = {
     value: string;
     label: string;
     suffix: string;
-}
+};
 
-export interface ComparisonSection {
+export type ComparisonSection = {
     name: string;
     features: ComparisonFeature[];
-}
+};
 
-export interface ComparisonFeature {
+export type ComparisonFeature = {
     name: string;
     plans: ComparisonPlans;
-}
+};
 
-export interface ComparisonPlans {
-    [key: string]: boolean | string;
-}
+export type ComparisonPlans = Record<string, boolean | string>;

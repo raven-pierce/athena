@@ -1,21 +1,25 @@
-import { ForwardRefExoticComponent, PropsWithoutRef, SVGProps } from 'react';
-import { Price } from '@/types/marketing/pricing';
+import {
+    type ForwardRefExoticComponent,
+    type PropsWithoutRef,
+    type SVGProps,
+} from 'react';
+import { type Price } from '@/types/marketing/pricing';
 
-export interface Product {
+export type Product = {
     name: string;
     description: string;
     href: string;
     icon: ForwardRefExoticComponent<PropsWithoutRef<SVGProps<SVGSVGElement>>>;
-}
+};
 
-export interface Feature {
+export type Feature = {
     name: string;
     description: string;
     href: string;
     icon: ForwardRefExoticComponent<PropsWithoutRef<SVGProps<SVGSVGElement>>>;
-}
+};
 
-export interface Plan {
+export type Plan = {
     id: string;
     name: string;
     href: string;
@@ -23,4 +27,4 @@ export interface Plan {
     description: string;
     features: Feature[];
     featured: boolean;
-}
+};

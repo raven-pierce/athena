@@ -1,11 +1,11 @@
 import {
-    ComparisonFeature,
-    ComparisonSection,
-    Frequency,
+    type ComparisonFeature,
+    type ComparisonSection,
+    type Frequency,
 } from '@/types/marketing/pricing';
 import { CheckIcon, MinusIcon } from '@heroicons/react/20/solid';
 import { features, frequencies, plans } from '@/content/pricing';
-import { Plan } from '@/types/marketing/product';
+import { type Plan } from '@/types/marketing/product';
 import { RadioGroup } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import { Link } from '@inertiajs/react';
@@ -15,21 +15,22 @@ function classNames(...classes: string[]): string {
 }
 
 export default function PricingWithComparisonTable() {
-    let [frequency, setFrequency] = useState(frequencies[0]);
+    const [frequency, setFrequency] = useState(frequencies[0]);
 
     return (
         <div className="py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-4xl text-center">
                     <h2 className="text-base font-semibold leading-7 text-orange-600 dark:text-orange-400">
-                        Affordable Plans
+                        Scalable Pricing
                     </h2>
                     <p className="mt-2 text-4xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-5xl">
-                        We&rsquo;ve got a plan for every business.
+                        We&rsquo;re light on your wallet.
                     </p>
                 </div>
                 <p className="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600 dark:text-gray-300">
-                    Choose an affordable plan that&apos;s packed with the best
+                    A model so simple, you&rsquo;ll wonder why you ever paid for
+                    anything else.
                 </p>
                 <div className="mt-16 flex justify-center">
                     <RadioGroup
@@ -118,21 +119,21 @@ export default function PricingWithComparisonTable() {
                                                                 {feature.name}{' '}
                                                                 {typeof feature
                                                                     .plans[
-                                                                    plan.name
-                                                                ] ===
+                                                                        plan.name
+                                                                    ] ===
                                                                 'string' ? (
-                                                                    <span className="text-sm leading-6 text-gray-500 dark:text-gray-400">
+                                                                        <span className="text-sm leading-6 text-gray-500 dark:text-gray-400">
                                                                         (
-                                                                        {
-                                                                            feature
-                                                                                .plans[
-                                                                                plan
-                                                                                    .name
-                                                                            ]
-                                                                        }
+                                                                            {
+                                                                                feature
+                                                                                    .plans[
+                                                                                        plan
+                                                                                            .name
+                                                                                    ]
+                                                                            }
                                                                         )
-                                                                    </span>
-                                                                ) : null}
+                                                                        </span>
+                                                                    ) : null}
                                                             </span>
                                                         </li>
                                                     ) : null
@@ -272,54 +273,54 @@ export default function PricingWithComparisonTable() {
                                                                 >
                                                                     {typeof feature
                                                                         .plans[
-                                                                        plan
-                                                                            .name
-                                                                    ] ===
+                                                                            plan
+                                                                                .name
+                                                                        ] ===
                                                                     'string' ? (
-                                                                        <div className="text-center text-sm leading-6 text-gray-500 dark:text-gray-300">
-                                                                            {
-                                                                                feature
-                                                                                    .plans[
-                                                                                    plan
-                                                                                        .name
-                                                                                ]
-                                                                            }
-                                                                        </div>
-                                                                    ) : (
-                                                                        <>
-                                                                            {feature
-                                                                                .plans[
-                                                                                plan
-                                                                                    .name
-                                                                            ] ===
-                                                                            true ? (
-                                                                                <CheckIcon
-                                                                                    className="mx-auto h-5 w-5 text-orange-600 dark:text-orange-400"
-                                                                                    aria-hidden="true"
-                                                                                />
-                                                                            ) : (
-                                                                                <MinusIcon
-                                                                                    className="mx-auto h-5 w-5 text-gray-400 dark:text-gray-500"
-                                                                                    aria-hidden="true"
-                                                                                />
-                                                                            )}
-
-                                                                            <span className="sr-only">
+                                                                            <div className="text-center text-sm leading-6 text-gray-500 dark:text-gray-300">
+                                                                                {
+                                                                                    feature
+                                                                                        .plans[
+                                                                                            plan
+                                                                                                .name
+                                                                                        ]
+                                                                                }
+                                                                            </div>
+                                                                        ) : (
+                                                                            <>
                                                                                 {feature
                                                                                     .plans[
-                                                                                    plan
-                                                                                        .name
-                                                                                ] ===
+                                                                                        plan
+                                                                                            .name
+                                                                                    ] ===
+                                                                            true ? (
+                                                                                        <CheckIcon
+                                                                                            className="mx-auto h-5 w-5 text-orange-600 dark:text-orange-400"
+                                                                                            aria-hidden="true"
+                                                                                        />
+                                                                                    ) : (
+                                                                                        <MinusIcon
+                                                                                            className="mx-auto h-5 w-5 text-gray-400 dark:text-gray-500"
+                                                                                            aria-hidden="true"
+                                                                                        />
+                                                                                    )}
+
+                                                                                <span className="sr-only">
+                                                                                    {feature
+                                                                                        .plans[
+                                                                                            plan
+                                                                                                .name
+                                                                                        ] ===
                                                                                 true
-                                                                                    ? 'Included'
-                                                                                    : 'Not included'}{' '}
+                                                                                        ? 'Included'
+                                                                                        : 'Not included'}{' '}
                                                                                 in{' '}
-                                                                                {
-                                                                                    plan.name
-                                                                                }
-                                                                            </span>
-                                                                        </>
-                                                                    )}
+                                                                                    {
+                                                                                        plan.name
+                                                                                    }
+                                                                                </span>
+                                                                            </>
+                                                                        )}
                                                                 </td>
                                                             )
                                                         )}
