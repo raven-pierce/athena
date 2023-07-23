@@ -112,11 +112,7 @@ export default function Login({
                     </div>
                 </div>
 
-                <PrimaryButton
-                    className="w-full"
-                    type="submit"
-                    disabled={processing}
-                >
+                <PrimaryButton className="w-full" disabled={processing}>
                     Sign In
                 </PrimaryButton>
             </form>

@@ -7,6 +7,6 @@ declare global {
         axios: AxiosInstance;
     }
 
-    const route: typeof ziggyRoute;
-    const Ziggy: ZiggyConfig;
+    var route: typeof ziggyRoute;
+    var Ziggy: ZiggyConfig;
 }

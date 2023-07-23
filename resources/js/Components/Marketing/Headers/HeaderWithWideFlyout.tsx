@@ -6,12 +6,13 @@ import { type Product } from '@/types/marketing/product';
 import { products } from '@/content/navigation';
 import { Fragment, useState } from 'react';
 import { Link } from '@inertiajs/react';
+import { PageProps } from '@/types';
 
 function classNames(...classes: string[]): string {
     return classes.filter(Boolean).join(' ');
 }
 
-export default function HeaderWithWideFlyout() {
+export default function HeaderWithWideFlyout({ auth }: PageProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -58,9 +59,9 @@ export default function HeaderWithWideFlyout() {
                                     {products.map((item: Product) => (
                                         <div
                                             key={item.name}
-                                            className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-900"
+                                            className="group relative rounded-lg p-6 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-900/40"
                                         >
-                                            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900 dark:group-hover:bg-gray-950">
+                                            <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900/40 dark:group-hover:bg-gray-950">
                                                 <item.icon
                                                     className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
                                                     aria-hidden="true"
@@ -102,12 +103,21 @@ export default function HeaderWithWideFlyout() {
                     </Link>
                 </Popover.Group>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <Link
-                        href={route('login')}
-                        className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
-                    >
-                        Log In <span aria-hidden="true">&rarr;</span>
-                    </Link>
+                    {auth.user ? (
+                        <Link
+                            href={route('dashboard')}
+                            className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
+                        >
+                            Dashboard <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                    ) : (
+                        <Link
+                            href={route('login')}
+                            className="text-sm font-semibold leading-6 text-gray-950 dark:text-white"
+                        >
+                            Log In <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                    )}
                 </div>
             </nav>
             <Dialog
@@ -137,7 +147,7 @@ export default function HeaderWithWideFlyout() {
                                 <Disclosure as="div" className="-mx-3">
                                     {({ open }) => (
                                         <>
-                                            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900">
+                                            <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40">
                                                 Product
                                                 <ChevronDownIcon
                                                     className={classNames(
@@ -156,7 +166,7 @@ export default function HeaderWithWideFlyout() {
                                                             key={item.name}
                                                             as="a"
                                                             href={item.href}
-                                                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                                            className="block rounded-lg py-2 pl-6 pr-3 text-sm font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
                                                         >
                                                             {item.name}
                                                         </Disclosure.Button>
@@ -168,30 +178,39 @@ export default function HeaderWithWideFlyout() {
                                 </Disclosure>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
                                 >
                                     Features
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
                                 >
                                     Marketplace
                                 </Link>
                                 <Link
                                     href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
                                 >
                                     Company
                                 </Link>
                             </div>
                             <div className="py-6">
-                                <Link
-                                    href="#"
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
-                                >
-                                    Log In
-                                </Link>
+                                {auth.user ? (
+                                    <Link
+                                        href={route('dashboard')}
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
+                                    >
+                                        Dashboard
+                                    </Link>
+                                ) : (
+                                    <Link
+                                        href={route('login')}
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
+                                    >
+                                        Log In
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>

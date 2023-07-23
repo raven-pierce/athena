@@ -55,9 +55,9 @@ export default function HeaderWithFlyout({ auth }: PageProps) {
                                 {products.map((item: Product) => (
                                     <div
                                         key={item.name}
-                                        className="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-900"
+                                        className="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50 dark:hover:bg-gray-900/40"
                                     >
-                                        <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900 dark:group-hover:bg-gray-950">
+                                        <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900/40 dark:group-hover:bg-gray-950">
                                             <item.icon
                                                 className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
                                                 aria-hidden="true"
@@ -113,7 +113,7 @@ export default function HeaderWithFlyout({ auth }: PageProps) {
                                 {companyLinks.map((item: CompanyLink) => (
                                     <div
                                         key={item.name}
-                                        className="relative rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-900"
+                                        className="relative rounded-lg p-4 hover:bg-gray-50 dark:hover:bg-gray-900/40"
                                     >
                                         <Link
                                             href={item.href}
@@ -157,74 +157,78 @@ export default function HeaderWithFlyout({ auth }: PageProps) {
                 onClose={setMobileMenuOpen}
             >
                 <div className="fixed inset-0 z-10" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 flex w-full flex-col justify-between overflow-y-auto bg-white dark:bg-gray-950 sm:max-w-sm sm:ring-1 sm:ring-gray-950/10 dark:sm:ring-white/10">
-                    <div className="p-6">
-                        <div className="flex items-center justify-between">
-                            <HeaderLogo />
-                            <button
-                                type="button"
-                                className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-400"
-                                onClick={() => {
-                                    setMobileMenuOpen(false);
-                                }}
-                            >
-                                <span className="sr-only">Close menu</span>
-                                <XMarkIcon
-                                    className="h-6 w-6"
-                                    aria-hidden="true"
-                                />
-                            </button>
-                        </div>
-                        <div className="mt-6 flow-root">
-                            <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-400/10">
-                                <div className="space-y-2 py-6">
-                                    {products.map((item: Product) => (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            className="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
-                                        >
-                                            <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900 dark:group-hover:bg-gray-950">
-                                                <item.icon
-                                                    className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                                <div className="space-y-2 py-6">
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-50 flex w-full flex-col justify-between overflow-y-auto bg-white p-6 dark:bg-gray-950 sm:max-w-sm sm:ring-1 sm:ring-gray-950/10 dark:sm:ring-white/10">
+                    <div className="flex items-center justify-between">
+                        <HeaderLogo />
+                        <button
+                            type="button"
+                            className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-400"
+                            onClick={() => {
+                                setMobileMenuOpen(false);
+                            }}
+                        >
+                            <span className="sr-only">Close menu</span>
+                            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                        </button>
+                    </div>
+                    <div className="mt-6 flow-root">
+                        <div className="-my-6 divide-y divide-gray-500/10 dark:divide-gray-400/10">
+                            <div className="space-y-2 py-6">
+                                {products.map((item: Product) => (
                                     <Link
-                                        href="#"
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                        key={item.name}
+                                        href={item.href}
+                                        className="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
                                     >
-                                        Features
+                                        <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white dark:bg-gray-900/40 dark:group-hover:bg-gray-950">
+                                            <item.icon
+                                                className="h-6 w-6 text-gray-600 group-hover:text-orange-600 dark:text-gray-300 dark:group-hover:text-orange-500"
+                                                aria-hidden="true"
+                                            />
+                                        </div>
+                                        {item.name}
                                     </Link>
+                                ))}
+                            </div>
+                            <div className="space-y-2 py-6">
+                                <Link
+                                    href="#"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
+                                >
+                                    Features
+                                </Link>
+                                <Link
+                                    href="#"
+                                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
+                                >
+                                    Marketplace
+                                </Link>
+                                {companyLinks.map((item: CompanyLink) => (
                                     <Link
-                                        href="#"
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                        key={item.name}
+                                        href={item.href}
+                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
                                     >
-                                        Marketplace
+                                        {item.name}
                                     </Link>
-                                    {companyLinks.map((item: CompanyLink) => (
-                                        <Link
-                                            key={item.name}
-                                            href={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
-                                        >
-                                            {item.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                                <div className="py-6">
+                                ))}
+                            </div>
+                            <div className="py-6">
+                                {auth.user ? (
+                                    <Link
+                                        href={route('dashboard')}
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
+                                    >
+                                        Dashboard
+                                    </Link>
+                                ) : (
                                     <Link
                                         href={route('login')}
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-950 hover:bg-gray-50 dark:text-white dark:hover:bg-gray-900/40"
                                     >
                                         Log In
                                     </Link>
-                                </div>
+                                )}
                             </div>
                         </div>
                     </div>

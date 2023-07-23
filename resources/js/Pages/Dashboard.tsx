@@ -1,28 +1,20 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AppLayout from '@/Layouts/AppLayout';
 import { Head } from '@inertiajs/react';
-import { type PageProps } from '@/types';
 
-export default function Dashboard({ auth }: PageProps) {
+export default function Dashboard() {
     return (
-        <AuthenticatedLayout
-            user={auth.user}
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-                    Dashboard
-                </h2>
+        <AppLayout
+            heading="Dashboard"
+            subHeading="Good Morning!"
+            headerIcon={
+                <img
+                    src="https://tailwindui.com/img/logos/48x48/tuple.svg"
+                    alt=""
+                    className="h-16 w-16 flex-none rounded-full ring-1 ring-gray-950/10 dark:ring-white/10"
+                />
             }
         >
             <Head title="Dashboard" />
-
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">
-                            You&rsquo;re logged in!
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </AuthenticatedLayout>
+        </AppLayout>
     );
 }

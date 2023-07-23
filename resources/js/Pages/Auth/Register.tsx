@@ -73,7 +73,7 @@ export default function Register() {
                         name="email"
                         type="email"
                         value={data.email}
-                        autoComplete="username"
+                        autoComplete="email"
                         required
                         className="mt-2"
                         onChange={(e) => {
@@ -114,11 +114,7 @@ export default function Register() {
                         }}
                     />
                 </div>
-                <PrimaryButton
-                    className="w-full"
-                    type="submit"
-                    disabled={processing}
-                >
+                <PrimaryButton className="w-full" disabled={processing}>
                     Sign Up
                 </PrimaryButton>
             </form>

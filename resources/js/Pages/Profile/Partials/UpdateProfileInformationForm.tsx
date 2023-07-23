@@ -1,124 +1,185 @@
 import { Link, useForm, usePage } from '@inertiajs/react';
-import PrimaryButton from '@/Components/PrimaryButton';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import TextInput from '@/Components/TextInput';
-import { Transition } from '@headlessui/react';
-import { type FormEventHandler } from 'react';
+import { type FormEventHandler, useState } from 'react';
 import { type PageProps } from '@/types';
+import InputLabel from '@/Components/Forms/InputLabel';
+import TextInput from '@/Components/Forms/TextInput';
+import PrimaryButton from '@/Components/Forms/PrimaryButton';
+import Alert from '@/Components/Forms/Alert';
+import { Transition } from '@headlessui/react';
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
     status,
-    className = '',
 }: {
     mustVerifyEmail: boolean;
     status?: string;
-    className?: string;
 }) {
+    const [editInProgress, setEditInProgress] = useState(false);
+
     const { user } = usePage<PageProps>().props.auth;
 
-    const { data, setData, patch, errors, processing, recentlySuccessful } =
-        useForm({
-            name: user.name,
-            email: user.email,
-        });
+    const {
+        data,
+        setData,
+        patch,
+        reset,
+        errors,
+        processing,
+        recentlySuccessful,
+    } = useForm({
+        name: user.name,
+        email: user.email,
+    });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        patch(route('profile.update'));
+        patch(route('profile.update'), {
+            preserveScroll: true,
+            errorBag: 'updateProfileInformation',
+            onSuccess() {
+                setEditInProgress(false);
+            },
+            onError(errors) {
+                if (errors.password) {
+                    reset('name');
+                }
+
+                if (errors.email) {
+                    reset('email');
+                }
+            },
+        });
     };
 
     return (
-        <section className={className}>
-            <header>
-                <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">
-                    Profile Information
-                </h2>
-
-                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                    Update your account&rquos;s profile information and email
-                    address.
-                </p>
-            </header>
-
-            <form onSubmit={submit} className="mt-6 space-y-6">
+        <div>
+            <div className="mb-6 flex items-center justify-between">
                 <div>
-                    <InputLabel htmlFor="name" value="Name" />
-
-                    <TextInput
-                        id="name"
-                        className="mt-1 block w-full"
-                        value={data.name}
-                        onChange={(e) => {
-                            setData('name', e.target.value);
-                        }}
-                        required
-                        isFocused
-                        autoComplete="name"
-                    />
-
-                    <InputError className="mt-2" message={errors.name} />
+                    <h2 className="text-base font-semibold leading-7 text-gray-950 dark:text-white">
+                        Profile
+                    </h2>
+                    <p className="mt-1 text-sm leading-6 text-gray-500 dark:text-gray-400">
+                        This information will be displayed publicly so be
+                        careful what you share.
+                    </p>
                 </div>
-
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
-                        className="mt-1 block w-full"
-                        value={data.email}
-                        onChange={(e) => {
-                            setData('email', e.target.value);
-                        }}
-                        required
-                        autoComplete="username"
-                    />
-
-                    <InputError className="mt-2" message={errors.email} />
-                </div>
-
-                {mustVerifyEmail && user.email_verified_at === null && (
-                    <div>
-                        <p className="mt-2 text-sm text-gray-800 dark:text-gray-200">
-                            Your email address is unverified.
-                            <Link
-                                href={route('verification.send')}
-                                method="post"
-                                as="button"
-                                className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
+                <button
+                    type="button"
+                    className="rounded-md text-sm font-semibold text-orange-600 hover:text-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 dark:text-orange-500 dark:hover:text-orange-400 dark:focus-visible:outline-orange-500"
+                    onClick={() => setEditInProgress(!editInProgress)}
+                >
+                    {editInProgress ? 'Cancel' : 'Edit'}
+                </button>
+            </div>
+            {errors.name && <Alert message={errors.name} type="error" />}
+            {errors.email && <Alert message={errors.email} type="error" />}
+            <Transition
+                show={status === 'verification-link-sent'}
+                enter="transition ease-out duration-200"
+                enterFrom="opacity-0 -translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition ease-in duration-150"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 -translate-y-1"
+            >
+                <Alert message="A new verification link has been emailed to you!" />
+            </Transition>
+            <Transition
+                show={recentlySuccessful}
+                enter="transition ease-out duration-200"
+                enterFrom="opacity-0 -translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition ease-in duration-150"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 -translate-y-1"
+            >
+                <Alert message="Your changes have been saved." />
+            </Transition>
+            <dl className="mt-6 space-y-6 divide-y divide-gray-100 border-t border-gray-200 text-sm leading-6 dark:divide-white/5 dark:border-white/10">
+                {editInProgress ? (
+                    <form onSubmit={submit} className="mt-6 space-y-6">
+                        <div>
+                            <InputLabel htmlFor="name" value="Name" />
+                            <TextInput
+                                id="name"
+                                name="name"
+                                value={data.name}
+                                autoComplete="name"
+                                required
+                                isFocused={true}
+                                className="mt-2"
+                                onChange={(e) => {
+                                    setData('name', e.target.value);
+                                }}
+                            />
+                        </div>
+                        <div>
+                            <InputLabel htmlFor="email" value="Email" />
+                            <TextInput
+                                id="email"
+                                name="email"
+                                type="email"
+                                value={data.email}
+                                autoComplete="email"
+                                required
+                                className="mt-2"
+                                onChange={(e) => {
+                                    setData('email', e.target.value);
+                                }}
+                            />
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <PrimaryButton
+                                disabled={
+                                    processing ||
+                                    (data.email === user.email &&
+                                        user.name === data.name)
+                                }
                             >
-                                Click here to re-send the verification email.
-                            </Link>
-                        </p>
-
-                        {status === 'verification-link-sent' && (
-                            <div className="mt-2 text-sm font-medium text-green-600 dark:text-green-400">
-                                A new verification link has been sent to your
-                                email address.
-                            </div>
-                        )}
-                    </div>
+                                Save
+                            </PrimaryButton>
+                        </div>
+                    </form>
+                ) : (
+                    <>
+                        <div className="mt-6 sm:flex">
+                            <dt className="font-medium text-gray-950 dark:text-white sm:w-64 sm:flex-none sm:pr-6">
+                                Your Name
+                            </dt>
+                            <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                                <div className="text-gray-950 dark:text-white">
+                                    {user.name}
+                                </div>
+                            </dd>
+                        </div>
+                        <div className="pt-6 sm:flex">
+                            <dt className="font-medium text-gray-950 dark:text-white sm:w-64 sm:flex-none sm:pr-6">
+                                Email Address
+                            </dt>
+                            <dd className="mt-1 flex justify-between gap-x-6 sm:mt-0 sm:flex-auto">
+                                <div className="text-gray-950 dark:text-white">
+                                    {user.email}
+                                </div>
+                            </dd>
+                            {mustVerifyEmail &&
+                                user.email_verified_at === null && (
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                        Your email address is unverified.{' '}
+                                    <Link
+                                        href={route('verification.send')}
+                                        method="post"
+                                        as="button"
+                                        className="rounded-md text-sm font-semibold text-orange-600 hover:text-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 dark:text-orange-500 dark:hover:text-orange-400 dark:focus-visible:outline-orange-500"
+                                    >
+                                            Verify
+                                    </Link>
+                                </p>
+                            )}
+                        </div>
+                    </>
                 )}
-
-                <div className="flex items-center gap-4">
-                    <PrimaryButton disabled={processing}>Save</PrimaryButton>
-
-                    <Transition
-                        show={recentlySuccessful}
-                        enter="transition ease-in-out"
-                        enterFrom="opacity-0"
-                        leave="transition ease-in-out"
-                        leaveTo="opacity-0"
-                    >
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                            Saved.
-                        </p>
-                    </Transition>
-                </div>
-            </form>
-        </section>
+            </dl>
+        </div>
     );
 }
